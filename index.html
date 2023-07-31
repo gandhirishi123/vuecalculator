@@ -58,26 +58,28 @@
             font-weight: bold;
         }
     </style>
+
 </head>
 <body>
     <header>
         <h1>Simple Calculator</h1>
     </header>
 
-    <div class="calculator">
-        <input type="number" id="num1">
+    <div id="app" class="calculator">
+        <input type="number" v-model="num1">
         <br>
-        <input type="number" id="num2">
+        <input type="number" v-model="num2">
         <br>
-        <input type="button" value="+" id="add">
-        <input type="button" value="-" id="subtract">
-        <input type="button" value="*" id="multiply">
-        <input type="button" value="/" id="divide">
-        <br>
-        <div id="result"></div>
+        <div>
+            <button @click="showSum">Get Sum</button>
+            <button @click="showDifference">Get Difference</button>
+            <button @click="showMultiplication">Get Multiplication</button>
+            <button @click="showDivision">Get Division</button>
+        </div>
+        <div id="Printsum">{{ result }}</div>
     </div>
 
-     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
     <script>
         new Vue({
             el: '#app',
@@ -91,23 +93,22 @@
             methods: {
                 showSum() {
                     const sum = this.num1 + this.num2;
-                    this.result = `The sum of 2 numbers is: ${sum}<br>`;
+                    this.result = `The sum of 2 numbers is: ${sum}`;
                 },
                 showDifference() {
                     const difference = this.num1 - this.num2;
-                    this.result += `The difference of 2 numbers is: ${difference}<br>`;
+                    this.result = `The difference of 2 numbers is: ${difference}`;
                 },
                 showMultiplication() {
                     const multiplication = this.num1 * this.num2;
-                    this.result += `The multiplication of 2 numbers is: ${multiplication}<br>`;
+                    this.result = `The multiplication of 2 numbers is: ${multiplication}`;
                 },
                 showDivision() {
                     const division = this.num1 / this.num2;
-                    this.result += `The division of 2 numbers is: ${division}<br>`;
+                    this.result = `The division of 2 numbers is: ${division}`;
                 },
             },
         });
-    </script>
     </script>
 </body>
 </html>
