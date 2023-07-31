@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #007bff;
+            padding: 20px;
+            color: #fff;
+            text-align: center;
+        }
+
+        .calculator {
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            max-width: 300px;
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        input[type="number"] {
+            padding: 8px;
+            margin-right: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 120px;
+            text-align: right;
+        }
+
+        input[type="button"] {
+            padding: 8px 15px;
+            margin-top: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 50px;
+        }
+
+        input[type="button"]:hover {
+            background-color: #0056b3;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Simple Calculator</h1>
+    </header>
+
+    <div class="calculator">
+        <input type="number" id="num1">
+        <br>
+        <input type="number" id="num2">
+        <br>
+        <input type="button" value="+" id="add">
+        <input type="button" value="-" id="subtract">
+        <input type="button" value="*" id="multiply">
+        <input type="button" value="/" id="divide">
+        <br>
+        <div id="result"></div>
+    </div>
+
+     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data() {
+                return {
+                    num1: 0,
+                    num2: 0,
+                    result: '',
+                };
+            },
+            methods: {
+                showSum() {
+                    const sum = this.num1 + this.num2;
+                    this.result = `The sum of 2 numbers is: ${sum}<br>`;
+                },
+                showDifference() {
+                    const difference = this.num1 - this.num2;
+                    this.result += `The difference of 2 numbers is: ${difference}<br>`;
+                },
+                showMultiplication() {
+                    const multiplication = this.num1 * this.num2;
+                    this.result += `The multiplication of 2 numbers is: ${multiplication}<br>`;
+                },
+                showDivision() {
+                    const division = this.num1 / this.num2;
+                    this.result += `The division of 2 numbers is: ${division}<br>`;
+                },
+            },
+        });
+    </script>
+    </script>
+</body>
+</html>
